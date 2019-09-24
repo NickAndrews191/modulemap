@@ -38,9 +38,9 @@ public class EarthquakeCityMap extends PApplet {
 	private static final boolean offline = true;
 	
 	// Less than this threshold is a light earthquake
-	public static final float THRESHOLD_MODERATE = 5;
+	public static final float THRESHOLD_MODERATE = 6;
 	// Less than this threshold is a minor earthquake
-	public static final float THRESHOLD_LIGHT = 4;
+	public static final float THRESHOLD_LIGHT = 3;
 
 	/** This is where to find the local tiles, for working without an Internet connection */
 	public static String mbTilesString = "blankLight-1-3.mbtiles";
@@ -121,11 +121,17 @@ public class EarthquakeCityMap extends PApplet {
 	    int blue = color(0,0,255);
 	    int green = color(0,255,0);
 	    	   
-	    if (THRESHOLD_LIGHT <= 4  ) {
+	    if (THRESHOLD_LIGHT < mag   ) {
 	    	marker.setColor(yellow);
 	    }
-	    else if (THRESHOLD_MODERATE >= 5) {
+	    else if (THRESHOLD_MODERATE > mag && THRESHOLD_MODERATE < 7  ) {
 	    	marker.setColor(blue);
+	    }
+	    
+	    else {
+	    	
+	    	marker.setColor(green);
+	    	
 	    }
 		// TODO (Step 4): Add code below to style the marker's size and color 
 	    // according to the magnitude of the earthquake.  
