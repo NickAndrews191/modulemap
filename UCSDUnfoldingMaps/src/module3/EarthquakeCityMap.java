@@ -2,8 +2,8 @@ package module3;
 
 //Java utilities libraries
 import java.util.ArrayList;
-//import java.util.Collections;
-//import java.util.Comparator;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 //Processing library
@@ -21,6 +21,8 @@ import de.fhpotsdam.unfolding.utils.MapUtils;
 //Parsing library
 import parsing.ParseFeed;
 
+import java.lang.Object;
+
 /** EarthquakeCityMap
  * An application with an interactive map displaying earthquake data.
  * Author: UC San Diego Intermediate Software Development MOOC team
@@ -28,7 +30,7 @@ import parsing.ParseFeed;
  * Date: July 17, 2015
  * */
 public class EarthquakeCityMap extends PApplet {
-
+	
 	// You can ignore this.  It's to keep eclipse from generating a warning.
 	private static final long serialVersionUID = 1L;
 
@@ -71,9 +73,16 @@ public class EarthquakeCityMap extends PApplet {
 
 	    //Use provided parser to collect properties for each earthquake
 	    //PointFeatures have a getLocation method
+	 
 	    List<PointFeature> earthquakes = ParseFeed.parseEarthquake(this, earthquakesURL);
-	    
+	   
 	    //TODO (Step 3): Add a loop here that calls createMarker (see below) 
+	   
+	   
+        // Create markers for every earthquake
+        for (PointFeature earthquake : earthquakes) {
+            markers.add(createMarker(earthquake));
+        }
 	    // to create a new SimplePointMarker for each PointFeature in 
 	    // earthquakes.  Then add each new SimplePointMarker to the 
 	    // List markers (so that it will be added to the map in the line below)
@@ -87,7 +96,7 @@ public class EarthquakeCityMap extends PApplet {
 	 * feature and returns a SimplePointMarker for that earthquake
 	 * 
 	 * In step 3 You can use this method as-is.  Call it from a loop in the 
-	 * setp method.  
+	 * setup method.  
 	 * 
 	 * TODO (Step 4): Add code to this method so that it adds the proper 
 	 * styling to each marker based on the magnitude of the earthquake.  
