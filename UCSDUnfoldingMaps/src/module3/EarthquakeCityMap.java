@@ -77,7 +77,7 @@ public class EarthquakeCityMap extends PApplet {
 	    List<PointFeature> earthquakes = ParseFeed.parseEarthquake(this, earthquakesURL);
 	   
 	    //TODO (Step 3): Add a loop here that calls createMarker (see below) 
-	   
+	  
 	   
         // Create markers for every earthquake
         for (PointFeature earthquake : earthquakes) {
