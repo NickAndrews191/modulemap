@@ -85,10 +85,10 @@ public class EarthquakeCityMap extends PApplet {
 	   
         // Create markers for every earthquake
         for (PointFeature earthquake : earthquakes) {
-        	float magntd = (float)(pf.getProperty("magnitude"));
+        	
             markers.add(createMarker(earthquake));
         }
-        float magntd = (float)(pf.getProperty("magnitude"));
+      
 	    // to create a new SimplePointMarker for each PointFeature in 
 	    // earthquakes.  Then add each new SimplePointMarker to the 
 	    // List markers (so that it will be added to the map in the line below)
