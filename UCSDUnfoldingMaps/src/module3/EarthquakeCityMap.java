@@ -50,7 +50,11 @@ public class EarthquakeCityMap extends PApplet {
 	
 	//feed with magnitude 2.5+ Earthquakes
 	private String earthquakesURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.atom";
-
+	public int yellow = color(255, 255, 0);
+    public int blue   = color(0,0,255);
+    public int green  = color(0,255,0);
+    public int white  = color(255,255,255);
+    public int black  = color(0,0,0);
 	
 	public void setup() {
 		size(950, 600, OPENGL);
@@ -81,8 +85,10 @@ public class EarthquakeCityMap extends PApplet {
 	   
         // Create markers for every earthquake
         for (PointFeature earthquake : earthquakes) {
+        	float magntd = (float)(pf.getProperty("magnitude"));
             markers.add(createMarker(earthquake));
         }
+        float magntd = (float)(pf.getProperty("magnitude"));
 	    // to create a new SimplePointMarker for each PointFeature in 
 	    // earthquakes.  Then add each new SimplePointMarker to the 
 	    // List markers (so that it will be added to the map in the line below)
@@ -152,12 +158,33 @@ public class EarthquakeCityMap extends PApplet {
 	    map.draw();
 	    addKey();
 	}
-
-
+    
+	
 	// helper method to draw key in GUI
 	// TODO: Implement this method to draw the key
 	private void addKey() 
 	{	
+		fill(white);
+		rect(20, 60, 175, 475);
+		fill(black);
+		textSize(24);
+		text("MAP KEY", 40, 100); 
+		fill(black);
+		textSize(16);
+		text("less than 3", 80, 155); 
+		fill(black);
+		textSize(16);
+		text("3 to 6 mag", 80, 205); 
+		fill(black);
+		textSize(16);
+		text("greater than 7", 80, 255); 
+		fill(yellow);
+		ellipse(45, 150, 30, 30);
+		fill(blue);
+		ellipse(45, 200, 30, 30);
+		fill(green);
+		ellipse(45, 250, 30, 30);
+		// Remember you can use Processing's graphics methods here
 		// Remember you can use Processing's graphics methods here
 	
 	}
