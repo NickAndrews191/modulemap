@@ -160,9 +160,10 @@ public class EarthquakeCityMap extends PApplet {
 	// "country" property of its PointFeature to the country where it occurred
 	// and returns true.  Notice that the helper method isInCountry will
 	// set this "country" property already.  Otherwise it returns false.
-	private boolean isLand(PointFeature earthquake) {
+	private boolean isLand(PointFeature earthquake) { // step 3
 		
-		
+
+
 		// Loop over all the country markers.  
 		// For each, check if the earthquake PointFeature is in the 
 		// country in m.  Notice that isInCountry takes a PointFeature
@@ -170,6 +171,9 @@ public class EarthquakeCityMap extends PApplet {
 		// If isInCountry ever returns true, isLand should return true.
 		for (Marker m : countryMarkers) {
 			// TODO: Finish this method using the helper method isInCountry
+			if (isInCountry(earthquake, m)) {
+				return true;
+			}
 			
 		}
 		
@@ -184,12 +188,32 @@ public class EarthquakeCityMap extends PApplet {
 	 * ...
 	 * OCEAN QUAKES: numOceanQuakes
 	 * */
-	private void printQuakes() 
+	private void printQuakes() //step 4
 	{
 		// TODO: Implement this method
 		// One (inefficient but correct) approach is to:
 		//   Loop over all of the countries, e.g. using 
-		//        for (Marker cm : countryMarkers) { ... }
+		        for (Marker cm : countryMarkers) { //countries		       
+		        	String countryName = cm.getProperty("name").toString();		        	
+		        	int quakecounter = 0;			        	
+		        	for(Marker Landqak : quakeMarkers) {//oceans			        	
+		        		if (Landqak.getProperty("country").equals(countryName)){		        	
+		        			quakecounter++;
+						}			        
+		        	if(quakecounter > 0) {		    		  
+		            System.out.println(countryName + "has had "+ quakecounter + " of earthquakes");
+	              	}
+                 }
+		     }
+		        
+		        int Oqak = 0;
+		        for(Marker oceanqak : quakeMarkers) {//oceans
+		        	if ( oceanqak instanceof OceanQuakeMarker){
+						Oqak++;
+					}
+		        }
+		        
+		        System.out.print("There has been "+ Oqak + " ocean earthquakes");
 		//        
 		//      Inside the loop, first initialize a quake counter.
 		//      Then loop through all of the earthquake
