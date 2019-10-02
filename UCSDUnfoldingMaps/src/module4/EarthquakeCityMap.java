@@ -193,18 +193,20 @@ public class EarthquakeCityMap extends PApplet {
 		// TODO: Implement this method
 		// One (inefficient but correct) approach is to:
 		//   Loop over all of the countries, e.g. using 
-		        for (Marker cm : countryMarkers) { //countries		       
-		        	String countryName = cm.getProperty("name").toString();		        	
-		        	int quakecounter = 0;			        	
-		        	for(Marker Landqak : quakeMarkers) {//oceans			        	
-		        		if (Landqak.getProperty("country").equals(countryName)){		        	
-		        			quakecounter++;
-						}			        
-		        	if(quakecounter > 0) {		    		  
-		            System.out.println(countryName + "has had "+ quakecounter + " of earthquakes");
-	              	}
-                 }
-		     }
+		
+		
+		   //     for (Marker cm : countryMarkers) { //countries		       
+		   //     	String countryName = cm.getProperty("name").toString();		        	
+		   //     	int quakecounter = 0;			        	
+		   //     	for(Marker Landqak : quakeMarkers) {//oceans			        	
+		   //     		if (Landqak.getProperty("country").equals(countryName)){		        	
+		    //    			quakecounter++;
+			//			}			        
+		    //    	if(quakecounter > 0) {		    		  
+		    //        System.out.println(countryName + "has had "+ quakecounter + " of earthquakes");
+	      //        	}
+         //        }
+		//     }
 		        
 		        int Oqak = 0;
 		        for(Marker oceanqak : quakeMarkers) {//oceans

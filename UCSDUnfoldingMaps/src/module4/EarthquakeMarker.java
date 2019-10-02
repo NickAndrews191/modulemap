@@ -18,7 +18,7 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 
 	// SimplePointMarker has a field "radius" which is inherited
 	// by Earthquake marker:
-	// protected float radius;
+	 protected float radius = 5;
 	//
 	// You will want to set this in the constructor, either
 	// using the thresholds below, or a continuous function
